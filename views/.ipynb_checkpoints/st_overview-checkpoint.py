@@ -4,7 +4,7 @@ from PIL import Image
 st.title("Pet Expense Management")
 st.write("### About the Project")
 col1, col2 = st.columns([1,2])
-col1.image(cover, caption=None,)
+col1.image("https://miscprojects.fra1.digitaloceanspaces.com/ds/cover.png", caption=None,)
 col2.write(
         """
         This presentation is the culmination of a three-month data science group project completed with DataScientest as part of a bootcamp. 
