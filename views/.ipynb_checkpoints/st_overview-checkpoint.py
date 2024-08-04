@@ -4,7 +4,6 @@ from PIL import Image
 st.title("Pet Expense Management")
 st.write("### About the Project")
 col1, col2 = st.columns([1,2])
-cover = Image.open('/Users/natashaaa/ds/may24_bds_int_pet_expense/src/streamlit/cover.png') 
 col1.image(cover, caption=None,)
 col2.write(
         """
@@ -24,7 +23,7 @@ st.write("""
 col3, col4 = st.columns([1,1])
 col4.download_button(label="Download Report",
         data=PDFbyte,
-        file_name="https://miscprojects.fra1.digitaloceanspaces.com/ds/final_report.pdf,
+        file_name="https://miscprojects.fra1.digitaloceanspaces.com/ds/final_report.pdf",
         mime='application/octet-stream')
 col3.link_button("View Source Code", "https://github.com/DataScientest-Studio/may24_bds_int_pet_expense")
 
