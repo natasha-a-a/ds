@@ -2,10 +2,17 @@ import streamlit as st
 from PIL import Image
 
 st.title("Experiments")
+st.write("""
+We were convinced that our advanced models suffered from overfitting and so we examined the performance of other models. Another strategy we employed was to play around with the dataset and variables:
+""")
 col1, col2, col3 = st.columns([1,3,1])
 col1.image("https://miscprojects.fra1.digitaloceanspaces.com/ds/Husky.png")
 col2.write("""
-We were convinced that our advanced models suffered from overfitting and so we examined the performance of other models. Another strategy we employed was to play around with the dataset and variables. We split the dataset vertically in order to test for variable bias. We further removed the "breed" variable and substituted it with groups of breeds. We also binarized the target variable, changed the target variable (to predict "breed"), and reorganized the breed groups.
+- Split the dataset vertically, to test for variable bias. 
+- Remove "breed" variable, to reduce dimensionality with groups of breeds. 
+- Reorganize the breed groups, to improve variable correlation.
+- Binarize the target variable, to improve model learning
+- Change the target variable, to better understand variable relations.
 """) 
 col3.image("https://miscprojects.fra1.digitaloceanspaces.com/ds/German_Shepherd.png")
 
