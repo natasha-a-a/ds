@@ -20,12 +20,8 @@ st.write("""
         - Data modelling
         - Project defense
         """)
-col3, col4 = st.columns([1,1])
-with open("https://miscprojects.fra1.digitaloceanspaces.com/ds/final_report.pdf", "rb") as pdf_file:
-        PDFbyte = pdf_file.read()
-col4.download_button(label="Download Report",
-                     data=PDFbyte,
-        file_name="pet_expenses_report.pdf",
-        mime='application/octet-stream')
-col3.link_button("View Source Code", "https://github.com/DataScientest-Studio/may24_bds_int_pet_expense")
+col3, col4, col5, col6 = st.columns([1,1,1,1])
+col4.link_button("Download Report", "https://miscprojects.fra1.digitaloceanspaces.com/ds/final_report.pdf")
+col5.link_button("View Source Code", "https://github.com/DataScientest-Studio/may24_bds_int_pet_expense")
+
 
