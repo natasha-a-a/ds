@@ -13,10 +13,7 @@ with tab2:
     st.header("Expense Risk Result")
     st.image("https://miscprojects.fra1.digitaloceanspaces.com/ds/wfresult.jpg", use_column_width=True)
     
-st.write(
-        """ In our initial results of expense risk estimation with a classification model, we used self-defined bins on the range of yearly final costs.  
-        """
-        )
+
 st.subheader("Integrated Concept")
 
 st.write(
