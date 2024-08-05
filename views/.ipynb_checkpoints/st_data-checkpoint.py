@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 import pandas as pd
 df = pd.read_csv("https://miscprojects.fra1.digitaloceanspaces.com/ds/combined_data.csv")
-# dr = pd.read_csv("https://miscprojects.fra1.digitaloceanspaces.com/ds/dataset_review.csv")
+dr = pd.read_csv("https://miscprojects.fra1.digitaloceanspaces.com/ds/dataset_review.csv")
 
 
 st.title("Data Exploration")
@@ -17,7 +17,7 @@ A review of the combined datasets is provided below:
 
 """)
 
-# st.table(dr)
+st.table(dr)
 
 st.subheader("Data Limitations")
 
