@@ -33,7 +33,7 @@ models = {
         "interpretability": 'https://miscprojects.fra1.digitaloceanspaces.com/ds/shap_plot_rf_manually_tuned.png'
     },
     "Random Forest (Best Parameters)": {
-        "model_performance": 'https://miscprojects.fra1.digitaloceanspaces.com/ds/rf_model_performance.JPG',
+        "model_performance": ['https://miscprojects.fra1.digitaloceanspaces.com/ds/rf_model_performance.JPG', 'https://miscprojects.fra1.digitaloceanspaces.com/ds/rf_best_cv.JPG'],
         "classification_report": 'https://miscprojects.fra1.digitaloceanspaces.com/ds/rf_classification_report.JPG',
         "confusion_matrix": None,
         "interpretability": 'https://miscprojects.fra1.digitaloceanspaces.com/ds/rf_shap_best_param.JPG'
@@ -45,7 +45,7 @@ models = {
         "interpretability": None
     },
     "Decision Tree (Best Parameters)": {
-        "model_performance": 'https://miscprojects.fra1.digitaloceanspaces.com/ds/dt_model_performance.JPG',
+        "model_performance": ['https://miscprojects.fra1.digitaloceanspaces.com/ds/dt_model_performance.JPG','https://miscprojects.fra1.digitaloceanspaces.com/ds/dt_best_cv.JPG'],
         "classification_report": 'https://miscprojects.fra1.digitaloceanspaces.com/ds/dt_classification_report.JPG',
         "confusion_matrix": None,
         "interpretability": 'https://miscprojects.fra1.digitaloceanspaces.com/ds/dt_shap_best_param.JPG'
@@ -65,13 +65,25 @@ if model_name:
     # Display model performance if available
     if selected_model.get("model_performance"):
         st.subheader("Model Performance")
-        try:
-            image_pr_path = selected_model["model_performance"]
-            st.image(image_pr_path, caption=f"{model_name} Model Performance", use_column_width=True)
-        except FileNotFoundError:
-            st.write("Model Performance Report file not found.")
-        except Exception as e:
-            st.write(f"An error occurred while loading the Model performance report: {e}")
+            # Check if the value is a list of images
+        if isinstance(selected_model["model_performance"], list):
+            for image_pr_path in selected_model["model_performance"]:
+                try:
+                    #image_pr = Image.open(image_pr_path)
+                    st.image(image_pr_path, caption=f"{model_name} Model Performance", use_column_width=True)
+                except FileNotFoundError:
+                    st.write(f"Model Performance Report file '{image_pr_path}' not found.")
+                except Exception as e:
+                    st.write(f"An error occurred while loading the Model performance report '{image_pr_path}': {e}")
+            else:
+                try:
+                    image_pr_path = selected_model["model_performance"]
+                # image_pr = Image.open(image_pr_path)
+                    st.image(image_pr_path, caption=f"{model_name} Model Performance", use_column_width=True)
+                except FileNotFoundError:
+                    st.write("Model Performance Report file not found.")
+                except Exception as e:
+                    st.write(f"An error occurred while loading the Model performance report: {e}")
 
 # Display classification report if available
     if selected_model.get("classification_report"):
